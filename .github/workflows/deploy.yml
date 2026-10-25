@@ -22,12 +22,29 @@ jobs:
 
       - run: npm ci
       - run: npm run build
+      - run: tar -czf site.tar.gz -C dist .
 
-      - name: Deploy dist/ via FTP
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+      - name: Upload bundle
+        uses: appleboy/scp-action@v0.1.7
         with:
-          server: ${{ secrets.FTP_SERVER }}
-          username: ${{ secrets.FTP_USERNAME }}
-          password: ${{ secrets.FTP_PASSWORD }}
-          local-dir: ./dist/
-          server-dir: ./public_html/
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USER }}
+          password: ${{ secrets.SSH_PASSWORD }}
+          port: ${{ secrets.SSH_PORT }}
+          source: site.tar.gz
+          target: /home/${{ secrets.SSH_USER }}/
+
+      - name: Extract into web root
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USER }}
+          password: ${{ secrets.SSH_PASSWORD }}
+          port: ${{ secrets.SSH_PORT }}
+          script: |
+            set -e
+            DOCROOT=~/domains/imgood.in/public_html
+            tar -xzf ~/site.tar.gz -C "$DOCROOT"
+            rm ~/site.tar.gz
+            find "$DOCROOT/assets" -type f -mtime +30 -delete 2>/dev/null || true
+            echo "deployed $(date)"

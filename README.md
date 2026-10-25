@@ -21,8 +21,9 @@ npm run dev
 
 ## Deploy
 
-Pushes to `main` build and FTP-deploy `dist/` to Hostinger via GitHub Actions.
-Required repo secrets: `FTP_SERVER`, `FTP_USERNAME`, `FTP_PASSWORD` (from hPanel → Files → FTP Accounts).
+Pushes to `main` build and deploy `dist/` to Hostinger over SSH via GitHub Actions.
+Required repo secrets: `SSH_HOST`, `SSH_PORT` (65002), `SSH_USER`, `SSH_PASSWORD`
+(from hPanel → Advanced → SSH Access). Web root: `~/domains/imgood.in/public_html`.
 
 ## Easter eggs
 
