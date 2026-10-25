@@ -107,7 +107,7 @@ export const projects: Project[] = [
       'Terraform-defined AWS (ECS Fargate, ALB, RDS, EventBridge) · GitHub Actions CI/CD · ~780 JUnit 5 + Mockito tests',
     ],
     tech: ['Java 21', 'Spring Boot 3.4', 'PostgreSQL', 'AWS ECS', 'Terraform', 'Razorpay'],
-    link: { label: 'Google Play ↗', href: 'https://play.google.com/store/search?q=snappeats&c=apps' },
+    link: { label: 'Google Play ↗', href: 'https://play.google.com/store/apps/details?id=com.snappeats' },
     accent: 'green',
   },
   {
@@ -121,6 +121,7 @@ export const projects: Project[] = [
       'DB-as-state design: survives crashes mid-plan, scales horizontally with zero sticky sessions',
     ],
     tech: ['LangGraph', 'Python', 'FastAPI', 'Bedrock', 'Claude', 'Kafka'],
+    link: { label: 'Dolphin Studio ↗', href: 'https://www.trydolphin.ai/studio' },
     accent: 'cyan',
   },
   {
