@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
+import { SectionHeading } from '../components/SectionHeading'
 import { TerminalWindow } from '../components/TerminalWindow'
 import { skills } from '../data/profile'
 
@@ -45,12 +46,7 @@ export function Skills() {
   return (
     <section id="skills" className="relative py-24 sm:py-32">
       <div ref={ref} className="mx-auto max-w-5xl px-4 sm:px-6">
-        <p className="mb-2 font-mono text-sm text-fg-dim">
-          <span className="text-green">$</span> htop --sort-key=SKILL
-        </p>
-        <h2 className="mb-10 font-mono text-4xl font-extrabold tracking-tight text-fg sm:text-5xl">
-          running processes<span className="text-green">_</span>
-        </h2>
+        <SectionHeading index="04" cmd="htop --sort-key=SKILL" title="running processes" />
         <TerminalWindow title="htop — skills" glow>
           <div className="space-y-8">
             {skills.map((group, gi) => (

@@ -46,6 +46,7 @@ export default function App() {
 
   return (
     <div className={rainbow ? 'rainbow-mode' : ''}>
+      <div className="aurora" aria-hidden />
       <div className="crt-overlay" aria-hidden />
       <div className="crt-vignette" aria-hidden />
 

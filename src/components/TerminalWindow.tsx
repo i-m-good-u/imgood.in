@@ -10,11 +10,11 @@ type Props = {
 export function TerminalWindow({ title = 'bash — 80×24', children, className = '', glow = false }: Props) {
   return (
     <div
-      className={`rounded-xl border border-edge bg-panel/90 backdrop-blur-sm shadow-window overflow-hidden ${
+      className={`gborder glass rounded-xl shadow-window overflow-hidden ${
         glow ? 'shadow-glow' : ''
       } ${className}`}
     >
-      <div className="flex items-center gap-2 border-b border-edge bg-panel-2 px-4 py-2.5">
+      <div className="flex items-center gap-2 border-b border-edge/70 bg-panel-2/80 px-4 py-2.5">
         <span className="size-3 rounded-full bg-red/90" />
         <span className="size-3 rounded-full bg-yellow/90" />
         <span className="size-3 rounded-full bg-green/80" />

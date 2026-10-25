@@ -1,6 +1,7 @@
 import { useEffect, useRef } from 'react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { SectionHeading } from '../components/SectionHeading'
 import { TerminalWindow } from '../components/TerminalWindow'
 import { projects, type Project } from '../data/profile'
 import { useReducedMotion } from '../hooks/useReducedMotion'
@@ -15,7 +16,7 @@ const accentText: Record<Project['accent'], string> = {
 
 function ProjectCard({ p }: { p: Project }) {
   return (
-    <TerminalWindow title={`guddu@prod: ${p.id}`} className="project-card h-full w-[86vw] shrink-0 sm:w-[560px]">
+    <TerminalWindow title={`guddu@prod: ${p.id}`} className="project-card tilt h-full w-[86vw] shrink-0 sm:w-[560px]">
       <p className="font-mono text-xs text-fg-dim">
         <span className="text-green">$</span> {p.cmd}
       </p>
@@ -43,7 +44,7 @@ function ProjectCard({ p }: { p: Project }) {
           href={p.link.href}
           target="_blank"
           rel="noreferrer"
-          className="mt-5 inline-block rounded-md bg-green px-4 py-2 font-mono text-sm font-bold text-ink transition-all hover:shadow-glow hover:brightness-110"
+          className="btn-gradient mt-5 inline-block rounded-md px-4 py-2 font-mono text-sm font-bold"
         >
           {p.link.label}
         </a>
@@ -86,12 +87,7 @@ export function Work() {
     <section id="work" className="relative py-24 sm:py-0">
       <div ref={root} className={useHorizontal ? 'md:flex md:min-h-svh md:flex-col md:justify-center md:overflow-hidden' : ''}>
         <div className="mx-auto w-full max-w-6xl px-4 sm:px-6">
-          <p className="mb-2 font-mono text-sm text-fg-dim">
-            <span className="text-green">$</span> ls ~/work --featured
-          </p>
-          <h2 className="mb-10 font-mono text-4xl font-extrabold tracking-tight text-fg sm:text-5xl">
-            shipped &amp; running<span className="text-green">_</span>
-          </h2>
+          <SectionHeading index="03" cmd="ls ~/work --featured" title="shipped & running" />
         </div>
         <div
           ref={track}

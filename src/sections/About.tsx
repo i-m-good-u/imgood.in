@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
+import { SectionHeading } from '../components/SectionHeading'
 import { TerminalWindow } from '../components/TerminalWindow'
 import { aboutLines, marqueeItems } from '../data/profile'
 
@@ -34,21 +35,19 @@ export function About() {
   return (
     <section id="about" className="relative py-24 sm:py-32">
       {/* marquee divider */}
-      <div className="mb-20 overflow-hidden border-y border-edge bg-panel-2 py-3 select-none" aria-hidden>
-        <div className="marquee-track gap-10 font-mono text-sm font-bold tracking-widest text-fg-faint">
+      <div className="mb-20 -rotate-1 overflow-hidden border-y border-green/20 bg-panel-2/80 py-4 select-none" aria-hidden>
+        <div className="marquee-track gap-12 font-mono text-base font-extrabold tracking-[0.25em]" style={{ animationDuration: '16s' }}>
           {[...marqueeItems, ...marqueeItems].map((m, i) => (
-            <span key={i} className="flex items-center gap-10">
-              <span className={i % 3 === 0 ? 'text-green/85' : i % 3 === 1 ? 'text-fg-dim' : 'text-amber/80'}>{m}</span>
-              <span className="text-edge">✕</span>
+            <span key={i} className="flex items-center gap-12">
+              <span className={i % 2 === 0 ? 'text-gradient' : 'text-fg-dim'}>{m}</span>
+              <span className="text-green/50">✦</span>
             </span>
           ))}
         </div>
       </div>
 
-      <div ref={ref} className="mx-auto max-w-4xl px-4 sm:px-6">
-        <p className="mb-6 font-mono text-sm text-fg-dim">
-          <span className="text-green">$</span> cat about.md
-        </p>
+      <div ref={ref} className="relative mx-auto max-w-4xl px-4 sm:px-6">
+        <SectionHeading index="01" cmd="cat about.md" title="the human" className="mb-2" />
         <TerminalWindow title="~/about.md" glow>
           <div className="font-mono text-[13.5px] leading-7 text-fg sm:text-[15px] sm:leading-8">
             {aboutLines.map((line, i) => (

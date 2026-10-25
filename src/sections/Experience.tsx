@@ -1,6 +1,7 @@
 import { useEffect, useRef } from 'react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { SectionHeading } from '../components/SectionHeading'
 import { experience } from '../data/profile'
 import { useReducedMotion } from '../hooks/useReducedMotion'
 
@@ -35,12 +36,7 @@ export function Experience() {
   return (
     <section id="experience" ref={root} className="relative py-24 sm:py-32">
       <div className="mx-auto max-w-5xl px-4 sm:px-6">
-        <p className="mb-2 font-mono text-sm text-fg-dim">
-          <span className="text-green">$</span> git log --graph --career
-        </p>
-        <h2 className="mb-14 font-mono text-4xl font-extrabold tracking-tight text-fg sm:text-5xl">
-          commit history<span className="text-green">_</span>
-        </h2>
+        <SectionHeading index="02" cmd="git log --graph --career" title="commit history" className="mb-4" />
 
         <div className="relative">
           <div className="commit-line absolute top-2 bottom-2 left-[7px] w-px bg-gradient-to-b from-green via-edge to-edge sm:left-[9px]" />

@@ -1,3 +1,4 @@
+import { SectionHeading } from '../components/SectionHeading'
 import { TerminalWindow } from '../components/TerminalWindow'
 import { identity } from '../data/profile'
 
@@ -12,12 +13,7 @@ export function Contact() {
   return (
     <section id="contact" className="relative py-24 sm:py-32">
       <div className="mx-auto max-w-3xl px-4 sm:px-6">
-        <p className="mb-2 font-mono text-sm text-fg-dim">
-          <span className="text-green">$</span> ssh guddu@imgood.in
-        </p>
-        <h2 className="mb-10 font-mono text-4xl font-extrabold tracking-tight text-fg sm:text-5xl">
-          open a connection<span className="text-green">_</span>
-        </h2>
+        <SectionHeading index="06" cmd="ssh guddu@imgood.in" title="open a connection" />
 
         <TerminalWindow title="ssh guddu@imgood.in" glow>
           <div className="font-mono text-sm leading-7">
