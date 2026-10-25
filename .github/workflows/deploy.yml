@@ -24,6 +24,15 @@ jobs:
       - run: npm run build
       - run: tar -czf site.tar.gz -C dist .
 
+      - name: Check secrets are present
+        run: |
+          ok=true
+          [ -n "${{ secrets.SSH_HOST }}" ] && echo "SSH_HOST: set" || { echo "SSH_HOST: MISSING"; ok=false; }
+          [ -n "${{ secrets.SSH_PORT }}" ] && echo "SSH_PORT: set" || { echo "SSH_PORT: MISSING"; ok=false; }
+          [ -n "${{ secrets.SSH_USER }}" ] && echo "SSH_USER: set" || { echo "SSH_USER: MISSING"; ok=false; }
+          [ -n "${{ secrets.SSH_PASSWORD }}" ] && echo "SSH_PASSWORD: set" || { echo "SSH_PASSWORD: MISSING"; ok=false; }
+          $ok || { echo "Add the missing secrets at Settings → Secrets and variables → Actions → Repository secrets"; exit 1; }
+
       - name: Upload bundle
         uses: appleboy/scp-action@v0.1.7
         with:
