@@ -47,7 +47,7 @@ export function About() {
       </div>
 
       <div ref={ref} className="relative mx-auto max-w-4xl px-4 sm:px-6">
-        <SectionHeading index="01" cmd="cat about.md" title="the human" className="mb-2" />
+        <SectionHeading index="01" cmd="cat about.md" title="Guddu Kumar (i_m_good_u)" className="mb-2" />
         <TerminalWindow title="~/about.md" glow>
           <div className="font-mono text-[13.5px] leading-7 text-fg sm:text-[15px] sm:leading-8">
             {aboutLines.map((line, i) => (

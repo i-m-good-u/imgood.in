@@ -16,7 +16,7 @@ const accentText: Record<Project['accent'], string> = {
 
 function ProjectCard({ p }: { p: Project }) {
   return (
-    <TerminalWindow title={`guddu@prod: ${p.id}`} className="project-card tilt h-full w-[86vw] shrink-0 sm:w-[560px]">
+    <TerminalWindow title={`i_m_good_u@prod: ${p.id}`} className="project-card tilt h-full w-[86vw] shrink-0 sm:w-[560px]">
       <p className="font-mono text-xs text-fg-dim">
         <span className="text-green">$</span> {p.cmd}
       </p>

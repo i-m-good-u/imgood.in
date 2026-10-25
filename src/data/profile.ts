@@ -1,6 +1,6 @@
 export const identity = {
   name: 'GUDDU KUMAR',
-  handle: 'guddu@bengaluru',
+  handle: 'i_m_good_u@bengaluru',
   tagline: "I build AI agents & distributed systems that don't go down.",
   location: 'Bengaluru, India',
   email: 'guddukumar032002@gmail.com',

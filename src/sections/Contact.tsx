@@ -13,9 +13,9 @@ export function Contact() {
   return (
     <section id="contact" className="relative py-24 sm:py-32">
       <div className="mx-auto max-w-3xl px-4 sm:px-6">
-        <SectionHeading index="06" cmd="ssh guddu@imgood.in" title="open a connection" />
+        <SectionHeading index="06" cmd="ssh i_m_good_u@imgood.in" title="open a connection" />
 
-        <TerminalWindow title="ssh guddu@imgood.in" glow>
+        <TerminalWindow title="ssh i_m_good_u@imgood.in" glow>
           <div className="font-mono text-sm leading-7">
             <p className="text-fg-dim">
               The authenticity of host <span className="text-cyan">'imgood.in'</span> can't be established.
@@ -43,7 +43,7 @@ export function Contact() {
               ))}
             </div>
             <p className="mt-6 text-fg-dim">
-              <span className="text-green">guddu@imgood.in</span>
+              <span className="text-green">i_m_good_u@imgood.in</span>
               <span className="text-fg-faint">:~$ </span>
               <span className="cursor" />
             </p>

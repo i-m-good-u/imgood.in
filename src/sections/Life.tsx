@@ -46,7 +46,7 @@ export function Life() {
               </div>
               <h3 className="mt-4 font-mono text-xl font-bold text-fg">{item.title}</h3>
               <p className="mt-3 text-sm leading-relaxed text-fg-dim">{item.desc}</p>
-              <p className="mt-5 font-mono text-xs text-fg-faint">-rwxr-xr-x 1 guddu staff</p>
+              <p className="mt-5 font-mono text-xs text-fg-faint">-rwxr-xr-x 1 i_m_good_u staff</p>
             </div>
           ))}
         </div>

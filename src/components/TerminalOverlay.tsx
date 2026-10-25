@@ -42,7 +42,7 @@ function run(input: string): { lines: Line[]; action?: 'close' | 'clear' | 'rain
     case 'whoami':
       return {
         lines: [
-          { text: 'guddu kumar', tone: 'green' },
+          { text: 'guddu kumar (i_m_good_u)', tone: 'green' },
           { text: 'backend engineer · ai agents & distributed systems · bengaluru' },
           { text: identity.tagline, tone: 'dim' },
           { text: 'also: bike rider, gym freak, professional shipper of things', tone: 'dim' },
@@ -147,7 +147,7 @@ export function TerminalOverlay({
 
   const submit = () => {
     const value = input
-    const echo: Line = { text: `guddu@imgood.in:~$ ${value}`, tone: 'dim' }
+    const echo: Line = { text: `i_m_good_u@imgood.in:~$ ${value}`, tone: 'dim' }
     const result = run(value)
     if (result.action === 'close') return onClose()
     if (result.action === 'rainbow') onRainbow()
@@ -175,7 +175,7 @@ export function TerminalOverlay({
           <button onClick={onClose} className="size-3 rounded-full bg-red/90" aria-label="Close terminal" />
           <span className="size-3 rounded-full bg-yellow/90" />
           <span className="size-3 rounded-full bg-green/80" />
-          <span className="ml-3 font-mono text-xs text-fg-dim select-none">guddu@imgood.in — zsh</span>
+          <span className="ml-3 font-mono text-xs text-fg-dim select-none">i_m_good_u@imgood.in — zsh</span>
           <span className="ml-auto font-mono text-[10px] text-fg-faint select-none">esc to close</span>
         </div>
         <div ref={scrollRef} className="flex-1 overflow-y-auto p-4 font-mono text-[13px] leading-6">
@@ -185,7 +185,7 @@ export function TerminalOverlay({
             </div>
           ))}
           <div className="flex items-center gap-2">
-            <span className="shrink-0 text-green">guddu@imgood.in:~$</span>
+            <span className="shrink-0 text-green">i_m_good_u@imgood.in:~$</span>
             <input
               ref={inputRef}
               value={input}
