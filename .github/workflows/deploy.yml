@@ -35,12 +35,27 @@ jobs:
           $ok || { echo "Add the missing secrets at Settings → Secrets and variables → Actions → Repository secrets"; exit 1; }
 
       - name: Upload bundle
+        id: upload
+        continue-on-error: true
         uses: appleboy/scp-action@v0.1.7
         with:
           host: ${{ secrets.SSH_HOST }}
           username: ${{ secrets.SSH_USER }}
           password: ${{ secrets.SSH_PASSWORD }}
           port: ${{ secrets.SSH_PORT }}
+          timeout: 60s
+          source: site.tar.gz
+          target: /home/${{ secrets.SSH_USER }}/
+
+      - name: Upload bundle (retry)
+        if: steps.upload.outcome == 'failure'
+        uses: appleboy/scp-action@v0.1.7
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USER }}
+          password: ${{ secrets.SSH_PASSWORD }}
+          port: ${{ secrets.SSH_PORT }}
+          timeout: 90s
           source: site.tar.gz
           target: /home/${{ secrets.SSH_USER }}/
 
